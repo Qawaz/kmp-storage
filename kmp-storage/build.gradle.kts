@@ -7,14 +7,25 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.mylibrary"
+group = "com.wakaztahir"
 
 kotlin {
     android {
         publishLibraryVariants("release")
     }
     jvm("desktop")
-
+    js(IR) {
+        browser {
+            testTask {
+                testLogging.showStandardStreams = true
+                useKarma {
+                    useChromeHeadless()
+                    useFirefox()
+                }
+            }
+        }
+        binaries.executable()
+    }
     sourceSets {
         named("commonMain") {
             dependencies {
@@ -80,11 +91,7 @@ configure<PublishingExtension> {
         }
         maven {
             name = "GithubPackages"
-            /** Configure path of your package repository on Github
-             *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
-             */
-            url = uri("https://maven.pkg.github.com/codeckle/compose-mapper")
-
+            url = uri("https://maven.pkg.github.com/codeckle/kmp-storage")
             runCatching {
                 credentials {
                     /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
