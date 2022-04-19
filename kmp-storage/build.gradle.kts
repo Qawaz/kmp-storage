@@ -5,6 +5,7 @@ plugins {
     id("com.android.library")
     kotlin("multiplatform")
     id("maven-publish")
+    id("org.jetbrains.dokka")
 }
 
 group = "com.wakaztahir"
@@ -14,18 +15,6 @@ kotlin {
         publishLibraryVariants("release")
     }
     jvm("desktop")
-    js(IR) {
-        browser {
-            testTask {
-                testLogging.showStandardStreams = true
-                useKarma {
-                    useChromeHeadless()
-                    useFirefox()
-                }
-            }
-        }
-        binaries.executable()
-    }
     sourceSets {
         named("commonMain") {
             dependencies {

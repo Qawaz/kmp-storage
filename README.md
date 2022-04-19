@@ -5,9 +5,8 @@
 Storage For Kotlin Multiplatform
 
 Supports 
-- Android & JVM
-
-Includes web module , but doesn't work with web
+- Android
+- JVM
 
 ### Usage
 ```kotlin
