@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":mapper:dokkaHtmlPartial/androidAndroidTestRelease":[],":mapper:dokkaHtmlPartial/androidDebug":[],":mapper:dokkaHtmlPartial/androidMain":[":mapper:dokkaHtmlPartial/commonMain"],":mapper:dokkaHtmlPartial/androidRelease":[],":mapper:dokkaHtmlPartial/commonMain":[],":mapper:dokkaHtmlPartial/desktopMain":[":mapper:dokkaHtmlPartial/commonMain"]}'
