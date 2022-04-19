@@ -1,6 +1,3 @@
-import java.io.FileInputStream
-import java.util.*
-
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
@@ -50,9 +47,6 @@ android {
     }
 }
 
-val githubProperties = Properties()
-kotlin.runCatching { githubProperties.load(FileInputStream(rootProject.file("github.properties"))) }
-
 configure<PublishingExtension> {
     publications {
         all {
@@ -84,8 +78,8 @@ configure<PublishingExtension> {
             runCatching {
                 credentials {
                     /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
-                    username = (githubProperties["gpr.usr"] ?: System.getenv("GPR_USER")).toString()
-                    password = (githubProperties["gpr.key"] ?: System.getenv("GPR_API_KEY")).toString()
+                    username = (findProperty("gpr.usr") ?: System.getenv("GPR_USER")).toString()
+                    password = (findProperty("gpr.key") ?: System.getenv("GPR_API_KEY")).toString()
                 }
             }.onFailure { it.printStackTrace() }
         }
