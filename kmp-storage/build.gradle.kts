@@ -71,13 +71,13 @@ configure<PublishingExtension> {
     }
 
     repositories {
-        maven {
-            setUrl(findProperty("publish.url")?.toString().orEmpty())
-            credentials {
-                username = findProperty("publish.username")?.toString().orEmpty()
-                password = findProperty("publish.password")?.toString().orEmpty()
-            }
-        }
+//        maven {
+//            setUrl(findProperty("publish.url")?.toString().orEmpty())
+//            credentials {
+//                username = findProperty("publish.username")?.toString().orEmpty()
+//                password = findProperty("publish.password")?.toString().orEmpty()
+//            }
+//        }
         maven {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/codeckle/kmp-storage")
